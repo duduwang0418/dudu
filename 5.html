@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Envelope Animation</title>
+  <title>信封|多多</title>
   <style>
     body {
       display: flex;
@@ -12,6 +12,25 @@
       height: 100vh;
       background-color: #f8f8f8;
       overflow: hidden;
+      margin: 0;
+    }
+    /* 左上角的圓形播放按鈕 */
+    .play-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      background-color: #fff;
+      background-image: url('\多多\IG wang._.0418\vscode\html\1.jpg'); /* 請替換為你的圖示網址 */
+      background-size: 70%;
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      z-index: 100;
     }
     .container {
       position: relative;
@@ -54,7 +73,7 @@
       align-items: center;
       font-family: Arial, sans-serif;
       font-size: 14px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       z-index: 1;
       transition: transform 1.5s ease-in-out;
     }
@@ -72,32 +91,50 @@
   </style>
 </head>
 <body>
+  <!-- 背景音樂 -->
   <audio id="bg-music" loop>
     <source src="\多多\IG wang._.0418\vscode\html\12.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
-  <div class="container">
+
+  <!-- 左上角的播放按鈕 -->
+  <button class="play-button" onclick="playMusic(event)"></button>
+
+  <!-- 信封容器 -->
+  <div class="container" onclick="openEnvelope(event)">
     <div class="flap"></div>
     <div class="envelope"></div>
-    <div class="letter">Your Message</div>
+    <div class="letter"></div>
   </div>
+  <div class="1.jpg"></div>
+
   <script>
     const container = document.querySelector('.container');
-    let isOpened = false; // 避免重複觸發
+    let isOpened = false;
     
     function openEnvelope(e) {
-      // 若已觸發過，就不再執行
+      // 防止重複觸發動畫
       if (isOpened) return;
       isOpened = true;
-      // 如果是 touch 事件，防止 click 也被觸發
+      // 防止 touch 事件產生 click 重複觸發
       e.preventDefault();
       container.classList.add('active');
+      // 如果希望信封點擊時同時播放音樂，可取消下面這行的註解
+      // document.getElementById("bg-music").play();
+    }
+    
+    function playMusic(e) {
+      // 防止事件向上冒泡
+      e.stopPropagation();
       document.getElementById("bg-music").play();
     }
     
-    container.addEventListener('click', openEnvelope);
+    // 同時支援 click 與 touch 事件
     container.addEventListener('touchstart', openEnvelope);
+    container.addEventListener('click', openEnvelope);
+    document.querySelector('.play-button').addEventListener('touchstart', playMusic);
+    document.querySelector('.play-button').addEventListener('click', playMusic);
+    
   </script>
 </body>
 </html>
-

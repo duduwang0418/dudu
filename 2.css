@@ -1,10 +1,10 @@
-.circular-element {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-image: url("1.jpg");
-    background-size: cover;
-    background-position: center;
+.circular-photo {
+    width: 200px;                /* 圓形的寬度，可自行調整 */
+    height: 200px;               /* 圓形的高度，可自行調整 */
+    border-radius: 50%;          /* 讓元素成為圓形 */
+    background-image: url('1.jpg'); /* 引用本機圖片檔案，若在同資料夾就直接寫檔名 */
+    background-size: cover;      /* 讓圖片自動填滿元素 */
+    background-position: center; /* 圖片置中 */
     background-repeat: no-repeat;
   }
   

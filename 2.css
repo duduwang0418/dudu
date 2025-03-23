@@ -1,10 +1,35 @@
-.circular-photo {
-    width: 200px;                /* 圓形的寬度，可自行調整 */
-    height: 200px;               /* 圓形的高度，可自行調整 */
-    border-radius: 50%;          /* 讓元素成為圓形 */
-    background-image: url('1.jpg'); /* 引用本機圖片檔案，若在同資料夾就直接寫檔名 */
-    background-size: cover;      /* 讓圖片自動填滿元素 */
-    background-position: center; /* 圖片置中 */
+/* 讓整個畫面置中，背景色可自行調整 */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  
+  /* 圓形按鈕的基本樣式 */
+  .circle-button {
+    width: 100px;                /* 按鈕寬度，可自行調整 */
+    height: 100px;               /* 按鈕高度，可自行調整 */
+    border-radius: 50%;          /* 圓形 */
+    background-color: #fff;
+    background-image: url('\多多\IG wang._.0418\vscode\html\1.jpg'); /* 預設是播放圖示 */
+    background-size: 50%;        /* 圖示大小，可自行調整 */
+    background-position: center;
     background-repeat: no-repeat;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+  }
+  
+  /* 滑鼠懸停時的縮放效果 */
+  .circle-button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* 播放中時（.playing）切換為暫停圖示 */
+  .circle-button.playing {
+    background-image: url('\多多\IG wang._.0418\vscode\html\1.jpg'); /* 暫停圖示 */
   }
   

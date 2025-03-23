@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>信封|多多</title>
+  <title>Envelope Animation with Play Button</title>
   <style>
     body {
       display: flex;
@@ -24,7 +24,7 @@
       border-radius: 50%;
       border: none;
       background-color: #fff;
-      background-image: url('\多多\IG wang._.0418\vscode\html\1.jpg'); /* 請替換為你的圖示網址 */
+      background-image: url('your-play-icon.png'); /* 請替換為你的圖示網址 */
       background-size: 70%;
       background-repeat: no-repeat;
       background-position: center;
@@ -104,9 +104,8 @@
   <div class="container" onclick="openEnvelope(event)">
     <div class="flap"></div>
     <div class="envelope"></div>
-    <div class="letter"></div>
+    <div class="letter">Your Message</div>
   </div>
-  <div class="1.jpg"></div>
 
   <script>
     const container = document.querySelector('.container');
@@ -134,7 +133,6 @@
     container.addEventListener('click', openEnvelope);
     document.querySelector('.play-button').addEventListener('touchstart', playMusic);
     document.querySelector('.play-button').addEventListener('click', playMusic);
-    
   </script>
 </body>
 </html>

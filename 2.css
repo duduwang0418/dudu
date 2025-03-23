@@ -1,0 +1,10 @@
+.circular-element {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-image: url("1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
